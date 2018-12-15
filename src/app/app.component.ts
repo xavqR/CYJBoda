@@ -1,10 +1,27 @@
+// import { Component } from '@angular/core';
+
+// @Component({
+//   selector: 'app-root',
+//   templateUrl: './app.component.html',
+//   styleUrls: ['./app.component.scss']
+// })
+// export class AppComponent {
+//   title = 'CYJBoda';
+// }
+
+
 import { Component } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  title = 'CYJBoda';
+  items: Observable<any[]>;
+  constructor(db: AngularFirestore) {
+    this.items = db.collection('items').valueChanges();
+  }
 }
