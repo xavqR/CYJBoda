@@ -1,0 +1,34 @@
+ 
+  .countdown{
+    margin-top: 15px;
+    text-align: center;
+    font-family: 'Bangers';
+    letter-spacing:2px;
+    display:block;
+  }
+
+  .countdown2{
+    letter-spacing:2px;  
+    font-family: 'Bangers'; 
+    color:red;
+  }
+
+@media screen and (min-width: 769px) 
+{
+    h1.countdown {
+        font-size: 35px;
+      }  
+      h1.bien {
+        font-size: 35px;
+      }  
+  }   
+
+@media screen and (max-width: 768px) {
+    h1.countdown {
+        font-size: 15px;
+      }  
+      h1.bien {
+        font-size: 15px;
+      }  
+}
+

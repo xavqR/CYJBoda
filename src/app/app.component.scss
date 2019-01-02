@@ -1,22 +1,62 @@
-.nav-link 
+  /* bangers-regular - latin */
+  @font-face {
+    font-family: 'Bangers';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/bangers-v10-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local('Bangers Regular'), local('Bangers-Regular'),
+         url('../assets/fonts/bangers-v10-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../assets/fonts/bangers-v10-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../assets/fonts/bangers-v10-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('../assets/fonts/bangers-v10-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../assets/fonts/bangers-v10-latin-regular.svg#Bangers') format('svg'); /* Legacy iOS */
+  }
+
+.nav-item 
 {
     font-size: large;
+    padding-left: 15px;
+}
+
+@media screen and (max-width: 1200px) {
+    .nav-item  {
+        padding-left: 0px;
+      }  
 }
 
 .navbar 
 {
-    margin-top: 10px;
+    float: none;
+    margin-top: 10px;  
 }
 
 .img{
     margin-top: 5px;
-    margin-bottom: 5px;
+    display: inline-block;
 }
-// .header {
-    
-//     background: transparent url('../app/header.png'); 
-//     background-repeat: no-repeat;
-//     background-position: center center;
-   
-    
-// }
+
+.img-fluid {
+    margin-top: 5px;     
+  }
+
+  
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Container holding the image and the text */
+.container2 {
+    margin-top: 30px;
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+
+
+.html{
+    font-family: sans-serif;
+  }
+

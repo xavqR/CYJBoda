@@ -1,33 +1,49 @@
-<div>
-    <div class="header">
-            <img [src]="crislogo" class="img float-left">            
-            <img [src]="javilogo" class="img float-right">
-            <img [src]="crisyjavilogo" class="mx-auto d-block" style="padding-top:10px;">      
-
-            <nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="clear:both;">
-                    <a class="navbar-brand" href="#">Navbar</a>
+<div class="html">
+    <div class="header">        
+            <div class="row align-items-center h-100">
+              <div class="col-lg-12">
+                    <img [src]="crislogo" class="img float-left"> 
+                    <img [src]="javilogo" class="img float-right" style="margin-top:10px;">
+                    <img [src]="crisyjavilogo" class="img-fluid mx-auto d-block" style="margin-top:10px; height: 120px; max-width: calc(100%/1.8);"> 
+              </div>
+          </div>
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="clear:both;">                     
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>
                   
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                      <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                      <ul class="navbar-nav mr-auto mx-auto">
+                        <li class="nav-item active" style="padding-left:0px;">
+                          <a class="nav-link" href="#">Bienvenidos<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">Link</a>
-                        </li>                        
+                          <a class="nav-link" href="#">Planning</a>
+                        </li>    
                         <li class="nav-item">
-                          <a class="nav-link disabled" href="#">Disabled</a>
+                          <a class="nav-link" href="#">Información</a>
+                        </li>    
+                        <li class="nav-item">
+                          <a class="nav-link d-block" style="white-space: nowrap;" href="#">Confirmar asistencia</a>
+                        </li>      
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Música</a>
+                        </li>                  
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Contáctanos</a>
                         </li>
                       </ul>
                     </div>
                 </nav>            
         </div>
 
-  <div class='container'>
+  <div class='container text-center'>
+      <app-welcome></app-welcome>
       <!-- <router-outlet></router-outlet> -->
   </div>
+
+  <div class="text-center" style="height:30px; background-color: #363d42; margin-top: 25px;">
+		<h6 style="font-weight: normal; color: white; font-size: 10px; padding-top: 9px">© 2018 Copyright Javi Quirós de Roa</h6>	
+	</div>
 </div>
 
