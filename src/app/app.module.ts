@@ -7,9 +7,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
-import { ReactiveFormsModule } from '@angular/forms';
 import { WelcomeComponent } from './home/welcome.component';
 import { AppRoutingModule } from './routing/app-routing.module';
+import { ContactModule } from './contact/contact.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { AppRoutingModule } from './routing/app-routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
+    ContactModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
