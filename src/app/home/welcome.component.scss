@@ -1,34 +1,21 @@
- 
-  .countdown{
+.countdownText{
     margin-top: 15px;
+    font-size: 35px;
     text-align: center;
     font-family: 'Bangers';
     letter-spacing:2px;
+    white-space: nowrap;
     display:block;
-  }
-
-  .countdown2{
-    letter-spacing:2px;  
-    font-family: 'Bangers'; 
-    color:red;
-  }
-
-@media screen and (min-width: 769px) 
-{
-    h1.countdown {
-        font-size: 35px;
-      }  
-      h1.bien {
-        font-size: 35px;
-      }  
-  }   
-
-@media screen and (max-width: 768px) {
-    h1.countdown {
-        font-size: 15px;
-      }  
-      h1.bien {
-        font-size: 15px;
-      }  
 }
 
+.countdownTime{
+    letter-spacing:2px;  
+    font-family: 'Bangers'; 
+    white-space: nowrap;
+    color:red;
+}
+
+.bienvenidos{
+    font-size: 35px;
+    font-family: 'Bangers';
+}

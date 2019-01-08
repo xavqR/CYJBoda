@@ -15,7 +15,8 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                       <ul class="navbar-nav mr-auto mx-auto">
                         <li class="nav-item active" style="padding-left:0px;">
-                          <a class="nav-link" href="#">Bienvenidos<span class="sr-only">(current)</span></a>
+                          <a class="nav-link" routerLinkActive='active'
+                          [routerLink]="['/home']">Bienvenidos<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="#">Planning</a>
@@ -23,6 +24,9 @@
                         <li class="nav-item">
                           <a class="nav-link" href="#">Información</a>
                         </li>    
+                        <li class="nav-item">
+                          <a class="nav-link" style="white-space: nowrap;" href="#">Como llegar</a>
+                        </li>   
                         <li class="nav-item">
                           <a class="nav-link d-block" style="white-space: nowrap;" href="#">Confirmar asistencia</a>
                         </li>      
@@ -38,12 +42,11 @@
         </div>
 
   <div class='container text-center'>
-      <app-welcome></app-welcome>
-      <!-- <router-outlet></router-outlet> -->
+    <router-outlet></router-outlet>
   </div>
 
-  <div class="text-center" style="height:30px; background-color: #363d42; margin-top: 25px;">
-		<h6 style="font-weight: normal; color: white; font-size: 10px; padding-top: 9px">© 2018 Copyright Javi Quirós de Roa</h6>	
+  <div class="footer text-center">
+		<p>© 2019 Copyright Javi Quirós de Roa</p>	
 	</div>
 </div>
 

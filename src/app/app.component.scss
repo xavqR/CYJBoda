@@ -12,16 +12,16 @@
          url('../assets/fonts/bangers-v10-latin-regular.svg#Bangers') format('svg'); /* Legacy iOS */
   }
 
-.nav-item 
-{
-    font-size: large;
-    padding-left: 15px;
-}
-
 @media screen and (max-width: 1200px) {
     .nav-item  {
         padding-left: 0px;
       }  
+}
+
+.nav-item 
+{
+    font-size: large;
+    padding-left: 15px;
 }
 
 .navbar 
@@ -38,25 +38,13 @@
 .img-fluid {
     margin-top: 5px;     
   }
-
   
-  .centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  /* Container holding the image and the text */
-.container2 {
-    margin-top: 30px;
-    position: relative;
-    text-align: center;
-    color: white;
-  }
-
-
-.html{
-    font-family: sans-serif;
-  }
-
+.footer{
+    height:30px; 
+    background-color: #363d42; 
+    margin-top: 25px;
+    font-weight: normal; 
+    color: white; 
+    font-size: 10px; 
+    padding-top: 9px
+}
