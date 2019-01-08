@@ -19,3 +19,16 @@
     font-size: 35px;
     font-family: 'Bangers';
 }
+
+@media screen and (min-width: 769px) 
+{
+    .countdownText, .countdownTime, .bienvenidos {
+        font-size: 35px;
+      }    
+}   
+
+@media screen and (max-width: 768px) {
+    .countdownText, .countdownTime, .bienvenidos {
+        font-size: 15px;
+      }  
+}
