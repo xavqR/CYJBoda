@@ -1,0 +1,31 @@
+[debug] [2019-01-13T21:08:18.673Z] ----------------------------------------------------------------------
+[debug] [2019-01-13T21:08:18.676Z] Command:       C:\program files\nodejs\node.exe C:\Users\CL453\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-01-13T21:08:18.676Z] CLI Version:   6.2.2
+[debug] [2019-01-13T21:08:18.676Z] Platform:      win32
+[debug] [2019-01-13T21:08:18.676Z] Node Version:  v10.14.1
+[debug] [2019-01-13T21:08:18.677Z] Time:          Sun Jan 13 2019 22:08:18 GMT+0100 (GMT+01:00)
+[debug] [2019-01-13T21:08:18.677Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-01-13T21:08:18.686Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-01-13T21:08:18.686Z] > authorizing via signed-in user
+[debug] [2019-01-13T21:08:18.686Z] [iam] checking project cyjboda-1b540 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2019-01-13T21:08:18.688Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/cyjboda-1b540:testIamPermissions  
+
+[debug] [2019-01-13T21:08:19.593Z] <<< HTTP RESPONSE 200
+[debug] [2019-01-13T21:08:19.594Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/cyjboda-1b540  
+ 
+[debug] [2019-01-13T21:08:19.865Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'cyjboda-1b540'...
+[info] 
+[info] i  deploying database, functions, hosting
+[debug] [2019-01-13T21:08:20.041Z] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received type undefined
+    at assertPath (path.js:39:11)
+    at Object.join (path.js:432:7)
+    at Config.path (C:\Users\CL453\AppData\Roaming\npm\node_modules\firebase-tools\lib\config.js:134:39)
+    at C:\Users\CL453\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\lifecycleHooks.js:57:46
+    at _chain (C:\Users\CL453\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:22:40)
+    at C:\Users\CL453\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:25:20
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[error] 
+[error] Error: An unexpected error has occurred.
