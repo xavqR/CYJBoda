@@ -16,11 +16,13 @@ library.add(fas);
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { ContactModule } from './contact/contact.module';
+import { InformacionComponent } from './informacion/informacion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    InformacionComponent
   ],
   imports: [
     BrowserModule,

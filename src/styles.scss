@@ -12,6 +12,28 @@ div.card {
   margin-top: 10px
 }
 
+.componentContent
+{
+    max-width: 780px;
+    margin: 0 auto; 
+    float: none; 
+    margin-top: 30px; 
+    margin-bottom: 0px; 
+    text-align: left;
+}
+
+.separator{
+    margin-top: 0px; 
+    margin-bottom: 20px;     
+    background: #d1d2d3; 
+}
+
+.btn
+{
+    background-color: #363d42; 
+    color: white;     
+}
+
 // Resetting from the mobile up!
 // 
 // Dropping the root* element font size to 14px is something

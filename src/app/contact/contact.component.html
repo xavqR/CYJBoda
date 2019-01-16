@@ -1,52 +1,54 @@
-<div class="title">
-    <h3><i class="fa fa-envelope"></i>Contáctanos</h3>
-    <hr class="separator"/>          
-</div>
+<div class="componentContent">
+    <div class="title">
+        <h3><i class="fa fa-envelope"></i>Contáctanos</h3>
+        <hr class="separator"/>          
+    </div>
 
-<div class="contactInfo text-left">        
-        <p><fa-icon class="telIcon" icon="phone"></fa-icon>677774692 Cristina</p>
-        <p><fa-icon class="telIcon" icon="phone"></fa-icon>637492277 Javi</p>
-        <p class="titleDetail">Responderemos cualquier consulta</p>   
-</div>
+    <div class="contactInfo text-left">        
+            <p><fa-icon class="telIcon" icon="phone"></fa-icon>677774692 Cristina</p>
+            <p><fa-icon class="telIcon" icon="phone"></fa-icon>637492277 Javi</p>
+            <p class="titleDetail">Responderemos cualquier consulta</p>   
+    </div>
      
-<form [formGroup]="form" (ngSubmit)="onSubmit()">   
-    <div class="form-group">
-        <div class="input-group mb-2">
-            <div class="input-group-prepend">
-                <div class="input-group-text"><fa-icon icon="user"></fa-icon></div>
-            </div>
-            <input type="text" class="form-control" formControlName="name" placeholder="Nombre" [ngClass]="{ 'is-invalid': submitted && form.controls.name.errors }">
-            <div *ngIf="submitted && form.controls.name.errors" class="invalid-feedback">
-            <div *ngIf="form.controls.name.errors.required">Debe introducir un nombre</div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">   
+        <div class="form-group">
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><fa-icon icon="user"></fa-icon></div>
+                </div>
+                <input type="text" class="form-control" formControlName="name" placeholder="Nombre" [ngClass]="{ 'is-invalid': submitted && form.controls.name.errors }">
+                <div *ngIf="submitted && form.controls.name.errors" class="invalid-feedback">
+                <div *ngIf="form.controls.name.errors.required">Debe introducir un nombre</div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="input-group mb-2">
-            <div class="input-group-prepend">
-                <div class="input-group-text"><fa-icon icon="envelope"></fa-icon></div>
+        <div class="form-group">
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><fa-icon icon="envelope"></fa-icon></div>
+                </div>
+                <input type="email" class="form-control" placeholder="ejemplo@gmail.com" formControlName="email" [ngClass]="{ 'is-invalid': submitted && form.controls.email.errors }">
+                <div *ngIf="submitted && form.controls.email.errors" class="invalid-feedback">
+                <div *ngIf="form.controls.email.errors.required">Debe introducir un email</div>
+                <div *ngIf="form.controls.email.errors.email">Debe introducir un email valido</div>
             </div>
-            <input type="email" class="form-control" placeholder="ejemplo@gmail.com" formControlName="email" [ngClass]="{ 'is-invalid': submitted && form.controls.email.errors }">
-            <div *ngIf="submitted && form.controls.email.errors" class="invalid-feedback">
-            <div *ngIf="form.controls.email.errors.required">Debe introducir un email</div>
-            <div *ngIf="form.controls.email.errors.email">Debe introducir un email valido</div>
+            </div>
         </div>
-        </div>
-    </div>
 
-    <div class="form-group">
-        <div class="input-group mb-2">
-            <div class="input-group-prepend">
-                <div class="input-group-text"><fa-icon icon="comment"></fa-icon></div>
-            </div>
-            <textarea class="form-control" placeholder="Envianos tu Mensaje" formControlName="message" [ngClass]="{ 'is-invalid': submitted && form.controls.message.errors }"></textarea>
-            <div *ngIf="submitted && form.controls.message.errors" class="invalid-feedback">
-            <div *ngIf="form.controls.message.errors.required">Debe introducir un mensaje</div>
+        <div class="form-group">
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><fa-icon icon="comment"></fa-icon></div>
+                </div>
+                <textarea class="form-control" placeholder="Envianos tu mensaje" formControlName="message" [ngClass]="{ 'is-invalid': submitted && form.controls.message.errors }"></textarea>
+                <div *ngIf="submitted && form.controls.message.errors" class="invalid-feedback">
+                <div *ngIf="form.controls.message.errors.required">Debe introducir un mensaje</div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="text-center">
-        <input type="submit" value="Enviar" class="btn">
-    </div>
+        <div class="text-center">
+            <input type="submit" value="Enviar" class="btn">
+        </div>
   </form>
+</div>

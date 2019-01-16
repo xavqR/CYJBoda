@@ -6,7 +6,7 @@ import { EmailServiceInterface } from './email.service-interface';
   providedIn: 'root'
 })
 export class EmailService implements EmailServiceInterface {
-  private service_id: String = 'xavqGMAIL';
+  private service_id: String = 'boda';
   private template_id: String  = 'boda';
   private user_id: String  = 'user_PMJajmYRpcKBU5KOuFNh8';
 
