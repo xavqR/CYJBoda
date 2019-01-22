@@ -1,3 +1,78 @@
-<p>
-  confirmar-asistencia works!
-</p>
+<!-- <div class="componentContent">
+  <div>
+      <h3><i class="fa fa-envelope"></i>Confirmar asistencia</h3>
+      <hr class="separator"/>     
+      <p>Agradeceríamos que nos confirmarais la asistencia lo antes posible. Solamente hace falta hacer una confirmación por núcleo
+        familiar, añadiendo a todos los invitados abajo.
+      </p>    
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">   
+    <div class="form-group">
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><fa-icon icon="user"></fa-icon></div>
+            </div>
+            <input type="text" class="form-control" formControlName="name" placeholder="Nombre" [ngClass]="{ 'is-invalid': submitted && form.controls.name.errors }">
+            <div *ngIf="submitted && form.controls.name.errors" class="invalid-feedback">
+            <div *ngIf="form.controls.name.errors.required">Debe introducir un nombre</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><fa-icon icon="envelope"></fa-icon></div>
+            </div>
+            <input type="email" class="form-control" placeholder="ejemplo@gmail.com" formControlName="email" [ngClass]="{ 'is-invalid': submitted && form.controls.email.errors }">
+            <div *ngIf="submitted && form.controls.email.errors" class="invalid-feedback">
+            <div *ngIf="form.controls.email.errors.required">Debe introducir un email</div>
+            <div *ngIf="form.controls.email.errors.email">Debe introducir un email valido</div>
+        </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group mb-2">  
+        <div class="card">
+          <h5 class="card-header text-center font-weight-bold">Invitados</h5>
+          <div class="card-body">
+            <div id="table" class="table-editable">
+              <span class="table-add float-right mb-3 mr-2">
+                <a class="text-success" (click)="add()">
+                  <fa-icon icon="plus"></fa-icon>
+                </a>
+              </span>
+              <table class="table table-bordered table-responsive-md table-striped text-center">
+                <tr>
+                  <th class="text-center font-weight-normal">Nombre</th>
+                  <th class="text-center font-weight-normal">Apellidos</th>
+                  <th class="text-center font-weight-normal">¿Te alojas?</th>
+                  <th class="text-center font-weight-normal">DNI</th>
+                  <th class="text-center font-weight-normal">Fecha nacimiento</th>
+                  <th class="text-center font-weight-normal" >Alergias alimenticias</th>
+                  <th class="text-center font-weight-normal">Eliminar</th>
+                </tr>
+                <tr *ngFor="let person of personList; let id = index">
+                  <td contenteditable="true" (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)">{{person.name}}</td>
+                  <td contenteditable="true" (keyup)="changeValue(id, 'age', $event)" (blur)="updateList(id, 'age', $event)">{{person.age}}</td>
+                  <td contenteditable="true" (keyup)="changeValue(id, 'companyName', $event)" (blur)="updateList(id, 'companyName', $event)">{{person.companyName}}</td>
+                  <td contenteditable="true" (keyup)="changeValue(id, 'country', $event)" (blur)="updateList(id, 'country', $event)">{{person.country}}</td>
+                  <td contenteditable="true" (keyup)="changeValue(id, 'city', $event)" (blur)="updateList(id, 'city', $event)">{{person.city}}</td>           
+                  <td>
+                    <span class="table-remove">
+                      <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(id)">Remove</button>
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <input type="submit" value="Confirmar" class="btn">
+  </div>
+  </form>
+</div> -->

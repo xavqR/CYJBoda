@@ -1,3 +1,64 @@
-<p>
-  musica works!
-</p>
+<div class="componentContent">
+    <div>
+        <h3><i class="fa fa-envelope"></i>Música</h3>
+        <hr class="separator"/>     
+        <p>Queremos que nuestra boda sea la mejor fiesta posible para todos. Por eso os invitamos a que propongáis canciones que 
+            os gustaría escuchar.</p>    
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">   
+        <div class="form-group">
+            <div class="input-group mb-2">    
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><fa-icon icon="user"></fa-icon></div>
+                </div>
+                <input type="text" class="form-control" formControlName="artista" placeholder="Artista" [ngClass]="{ 'is-invalid': submitted && form.controls.artista.errors }">
+                <div *ngIf="submitted && form.controls.artista.errors" class="invalid-feedback">
+                <div *ngIf="form.controls.artista.errors.required">Debe introducir un artista</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group mb-2">    
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><fa-icon icon="music"></fa-icon></div>
+                </div>
+                <input type="text" class="form-control" formControlName="cancion" placeholder="Canción" [ngClass]="{ 'is-invalid': submitted && form.controls.cancion.errors }">
+                <div *ngIf="submitted && form.controls.cancion.errors" class="invalid-feedback">
+                <div *ngIf="form.controls.cancion.errors.required">Debe introducir un canción</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <input type="submit" value="Enviar" class="btn">
+        </div>
+    </form>
+
+    <div class="listaMusica">
+        <p>Esta es la lista de canciones hasta el momento</p>
+        <div class="input-group mb-2">    
+            <div class="input-group-prepend">
+                <div class="input-group-text"><fa-icon icon="search"></fa-icon></div>
+            </div>
+            <input type="text" class="form-control" placeholder="Filtra por artista o canción" [(ngModel)]='filter'/>     
+        </div>
+
+        <div class='table-responsive'>
+            <table class='table'>         
+                <thead>
+                    <tr>           
+                        <th>Artista</th>
+                        <th>Canción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let music of filteredMusic'>          
+                        <td>{{ music.artista }}</td>                       
+                        <td>{{ music.cancion }}</td>                       
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

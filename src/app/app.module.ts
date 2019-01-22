@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './routing/app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -15,13 +16,16 @@ library.add(fas);
 
 import { AgmCoreModule } from '@agm/core';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
-import { ContactModule } from './contact/contact.module';
 import { InformacionComponent } from './informacion/informacion.component';
 import { ConfirmarAsistenciaComponent } from './confirmar/confirmar-asistencia.component';
 import { ComollegarComponent } from './comollegar/comollegar.component';
 import { MusicaComponent } from './musica/musica.component';
+import { ContactComponent } from './contact/contact.component';
+
 
 @NgModule({
   declarations: [
@@ -30,20 +34,22 @@ import { MusicaComponent } from './musica/musica.component';
     InformacionComponent,
     ConfirmarAsistenciaComponent,
     ComollegarComponent,
-    MusicaComponent
+    MusicaComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
+    ReactiveFormsModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBivQpQdUiasv5j8AT1ptGV2WwJpLwBaxU'
-    }),
-    ContactModule
+    })
   ],
   bootstrap: [AppComponent],
   providers:
