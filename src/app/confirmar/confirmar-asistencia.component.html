@@ -1,4 +1,4 @@
-<!-- <div class="componentContent">
+ <div class="componentContent">
   <div>
       <h3><i class="fa fa-envelope"></i>Confirmar asistencia</h3>
       <hr class="separator"/>     
@@ -7,15 +7,15 @@
       </p>    
   </div>
 
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">   
+  <form [formGroup]="formConfirmar" (ngSubmit)="onConfirmar()">   
     <div class="form-group">
         <div class="input-group mb-2">
             <div class="input-group-prepend">
                 <div class="input-group-text"><fa-icon icon="user"></fa-icon></div>
             </div>
-            <input type="text" class="form-control" formControlName="name" placeholder="Nombre" [ngClass]="{ 'is-invalid': submitted && form.controls.name.errors }">
-            <div *ngIf="submitted && form.controls.name.errors" class="invalid-feedback">
-            <div *ngIf="form.controls.name.errors.required">Debe introducir un nombre</div>
+            <input type="text" class="form-control" formControlName="name" placeholder="Nombre" [ngClass]="{ 'is-invalid': submittedConfirmar && formConfirmar.controls.name.errors }">
+            <div *ngIf="submittedConfirmar && formConfirmar.controls.name.errors" class="invalid-feedback">
+            <div *ngIf="formConfirmar.controls.name.errors.required">Debe introducir un nombre</div>
             </div>
         </div>
     </div>
@@ -24,25 +24,90 @@
             <div class="input-group-prepend">
                 <div class="input-group-text"><fa-icon icon="envelope"></fa-icon></div>
             </div>
-            <input type="email" class="form-control" placeholder="ejemplo@gmail.com" formControlName="email" [ngClass]="{ 'is-invalid': submitted && form.controls.email.errors }">
-            <div *ngIf="submitted && form.controls.email.errors" class="invalid-feedback">
-            <div *ngIf="form.controls.email.errors.required">Debe introducir un email</div>
-            <div *ngIf="form.controls.email.errors.email">Debe introducir un email valido</div>
+            <input type="email" class="form-control" placeholder="ejemplo@gmail.com" formControlName="email" [ngClass]="{ 'is-invalid': submittedConfirmar && formConfirmar.controls.email.errors }">
+            <div *ngIf="submittedConfirmar && formConfirmar.controls.email.errors" class="invalid-feedback">
+            <div *ngIf="formConfirmar.controls.email.errors.required">Debe introducir un email</div>
+            <div *ngIf="formConfirmar.controls.email.errors.email">Debe introducir un email valido</div>
         </div>
+      </div>
+    </div>
+
+    <div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">     
+              <h4 class="modal-title w-100" id="myModalLabel">Añadir invitado</h4>
+              <button type="button" class="close" aria-label="Close" (click)="basicModal.hide()">
+                  <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form [formGroup]="formInvitado" (ngSubmit)="onAddInvitado()">   
+            <div class="modal-body">
+              
+                    <div class="form-group">
+                     <div class="input-group mb-2">  
+                <div class="form-group">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><fa-icon icon="user"></fa-icon></div>
+                        </div>
+                        <input type="text" class="form-control" formControlName="fullname" placeholder="Nombre completo" [ngClass]="{ 'is-invalid': submittedAddInvitado && formInvitado.controls.fullname.errors }">
+                        <div *ngIf="submittedAddInvitado && formInvitado.controls.fullname.errors" class="invalid-feedback">
+                        <div *ngIf="formInvitado.controls.fullname.errors.required">Debe introducir nombre y apellidos</div>
+                        </div>
+                    </div>
+                </div>   
+                  <div class="form-group">
+                      <div class="input-group mb-2">
+                          <div class="input-group-prepend">
+                              <div class="input-group-text"><fa-icon icon="comment"></fa-icon></div>
+                          </div>
+                          <textarea class="form-control" placeholder="Alergias alimenticias" formControlName="alergias" [ngClass]="{ 'is-invalid': submittedAddInvitado && formInvitado.controls.alergias.errors }"></textarea>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <div class="input-group mb-2">                  
+                          <label class="radio-inline">¿Te quedas a dormir?<input type="radio" name="optradio">Sí</label>
+                          <label class="radio-inline"><input type="radio" name="optradio">No</label>
+  
+                          <!-- <input type="text" class="form-control" placeholder="Apellidos" formControlName="surnames" [ngClass]="{ 'is-invalid': submittedAddInvitado && formInvitado.controls.surnames.errors }">
+                          <div *ngIf="submittedAddInvitado && formInvitado.controls.surnames.errors" class="invalid-feedback">
+                          <div *ngIf="formInvitado.controls.email.surnames.required">Debe introducir los apellidos</div>           
+                        </div>  -->            
+                      </div>
+                    </div>
+                  </div>
+                </div>                   
+              
+              
+              
+              
+              
+             
+            </div>
+            <div class="modal-footer">
+              <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Close</button>
+              <button type="submit" mdbBtn color="secondary" class="relative waves-light" mdbWavesEffect>Añadir</button>
+            </div>
+          </form>
+          </div>
         </div>
     </div>
 
-    <div class="form-group">
-      <div class="input-group mb-2">  
+
         <div class="card">
-          <h5 class="card-header text-center font-weight-bold">Invitados</h5>
+          <h5 class="card-header text-center font-weight-bold">Invitados</h5>       
           <div class="card-body">
-            <div id="table" class="table-editable">
               <span class="table-add float-right mb-3 mr-2">
-                <a class="text-success" (click)="add()">
-                  <fa-icon icon="plus"></fa-icon>
-                </a>
-              </span>
+                  <a class="text-success" (click)="basicModal.show()" mdbWavesEffect>
+                    <fa-icon icon="plus"></fa-icon>
+                  </a>
+                </span>              
+                    
+
+
+            <!-- <div id="table" class="table-editable">      
               <table class="table table-bordered table-responsive-md table-striped text-center">
                 <tr>
                   <th class="text-center font-weight-normal">Nombre</th>
@@ -65,14 +130,13 @@
                     </span>
                   </td>
                 </tr>
-              </table>
-            </div>
+              </table> 
+            </div> -->
           </div>
         </div>
-      </div>
-    </div>
+
     <div class="text-center">
       <input type="submit" value="Confirmar" class="btn">
   </div>
   </form>
-</div> -->
+</div> 

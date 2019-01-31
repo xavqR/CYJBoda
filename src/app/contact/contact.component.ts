@@ -11,7 +11,7 @@ import { EmailService } from '../services/email.service';
 export class ContactComponent implements OnInit {
   form: FormGroup;
   submitted: Boolean = false;
-
+  formInvitados: FormGroup;
   constructor(private formBuilder: FormBuilder, private angularFirestore: AngularFirestore, private emailService: EmailService) { }
 
   public ngOnInit(): void  {

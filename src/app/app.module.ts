@@ -14,6 +14,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 library.add(fas);
 
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 import { AgmCoreModule } from '@agm/core';
 
 import { ReactiveFormsModule } from '@angular/forms';
@@ -49,7 +51,8 @@ import { ContactComponent } from './contact/contact.component';
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBivQpQdUiasv5j8AT1ptGV2WwJpLwBaxU'
-    })
+    }),
+    MDBBootstrapModule.forRoot()
   ],
   bootstrap: [AppComponent],
   providers:
