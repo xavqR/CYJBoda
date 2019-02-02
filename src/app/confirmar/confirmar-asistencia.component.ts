@@ -116,7 +116,7 @@ export class ConfirmarAsistenciaComponent implements OnInit {
 
       const formRequest = { name, email, date, invitados };
       this.angularFirestore.collection('confirmMessages').add(formRequest);
-      this.emailService.send(name, email, message, date);
+      this.emailService.sendConfirmacion(name, email, message, date);
 
       this.formConfirmar.reset();
       this.invitados.length = 0;

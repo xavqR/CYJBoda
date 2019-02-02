@@ -38,33 +38,37 @@
       </div>
     </div>
 
-    <div class="card" [ngClass]="{ 'is-invalid': submittedConfirmar && invitados && invitados.length < 1}">
-      <h5 class="card-header text-center font-weight-bold">Invitados</h5>
-      <div class="card-body">
-        <span class="table-add float-right">
-          <a class="text-success" (click)="basicModal.show()" mdbWavesEffect>
-            <fa-icon class="fa-lg" icon="plus"></fa-icon>
-          </a>
-        </span>
-        <div id="table" class="table-editable" *ngIf="invitados && invitados.length > 0">
-          <table class="table table-bordered table-responsive-md table-striped text-center">
-            <tr>
-              <th class="text-center font-weight-normal">Invitado</th>
-              <th class="text-center font-weight-normal">¿Alojamiento?</th>
-              <th class="text-center font-weight-normal">¿Alergias?</th>
-              <th class="text-center font-weight-normal"></th>
-            </tr>
-            <tr *ngFor="let invitado of invitados; let id = index">
-              <td>{{ invitado.nombreCompleto }}</td>
-              <td>{{ invitado.hasAlojamiento ? 'Sí' : 'No' }}</td>
-              <td ngTrueValue="Si">{{ invitado.hasAlergias ? 'Sí' : 'No' }}</td>
-              <td>
-                <a class="text-success" (click)="removeInvitado(invitado)" mdbWavesEffect>
-                  <fa-icon class="removeIcon fa-lg" icon="times"></fa-icon>
-                </a>
-              </td>
-            </tr>
-          </table>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="card" [ngClass]="{ 'is-invalid': submittedConfirmar && invitados && invitados.length < 1}">
+          <h5 class="card-header text-center font-weight-bold">Invitados</h5>
+          <div class="card-body">
+            <span class="table-add float-right">
+              <a class="text-success" (click)="basicModal.show()" mdbWavesEffect>
+                <fa-icon class="fa-lg" icon="plus"></fa-icon>
+              </a>
+            </span>
+            <div id="table" class="table-editable" *ngIf="invitados && invitados.length > 0">
+              <table class="table table-bordered table-responsive-md table-striped text-center">
+                <tr>
+                  <th class="text-center font-weight-normal">Invitado</th>
+                  <th class="text-center font-weight-normal">¿Alojamiento?</th>
+                  <th class="text-center font-weight-normal">¿Alergias?</th>
+                  <th class="text-center font-weight-normal"></th>
+                </tr>
+                <tr *ngFor="let invitado of invitados; let id = index">
+                  <td>{{ invitado.nombreCompleto }}</td>
+                  <td>{{ invitado.hasAlojamiento ? 'Sí' : 'No' }}</td>
+                  <td ngTrueValue="Si">{{ invitado.hasAlergias ? 'Sí' : 'No' }}</td>
+                  <td>
+                    <a class="text-success" (click)="removeInvitado(invitado)" mdbWavesEffect>
+                      <fa-icon class="removeIcon fa-lg" icon="times"></fa-icon>
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -120,14 +124,14 @@
                   </div>
                 </div>
 
-                  <div class="input-group col-md-12 col-lg-12">
-                    <label class="radio-inline">¿Te quedas a dormir? <input class="radioButton" type="radio" name="hasAlojamiento"
-                        formControlName="hasAlojamiento" [value]="true" [(ngModel)]='hasAlojamiento'>Sí</label>
-                    <label class="radio-inline"><input class="radioButton" type="radio" name="hasAlojamiento"
-                        formControlName="hasAlojamiento" [value]="false" [(ngModel)]='hasAlojamiento'>No</label>
-                    <div class="invalidValidation" *ngIf="submittedAddInvitado && formInvitado.controls.hasAlojamiento.errors && formInvitado.controls.hasAlojamiento.errors.required">Debes
-                      seleccionar si te quedas a dormir</div>
-                  </div>
+                <div class="input-group col-md-12 col-lg-12">
+                  <label class="radio-inline">¿Te quedas a dormir? <input class="radioButton" type="radio" name="hasAlojamiento"
+                      formControlName="hasAlojamiento" [value]="true" [(ngModel)]='hasAlojamiento'>Sí</label>
+                  <label class="radio-inline"><input class="radioButton" type="radio" name="hasAlojamiento"
+                      formControlName="hasAlojamiento" [value]="false" [(ngModel)]='hasAlojamiento'>No</label>
+                  <div class="invalidValidation" *ngIf="submittedAddInvitado && formInvitado.controls.hasAlojamiento.errors && formInvitado.controls.hasAlojamiento.errors.required">Debes
+                    seleccionar si te quedas a dormir</div>
+                </div>
 
                 <div class="form-group col-md-12 col-lg-12" style="margin-top: 1rem" *ngIf="formInvitado.controls.hasAlojamiento && formInvitado.controls.hasAlojamiento.value == 1">
                   <div class="input-group">
@@ -136,8 +140,7 @@
                         <fa-icon icon="id-card"></fa-icon>
                       </div>
                     </div>
-                    <input type="text" class="form-control" formControlName="dni" placeholder="DNI"
-                      [ngClass]="{ 'is-invalid': submittedAddInvitado && formInvitado.controls.dni.errors }">
+                    <input type="text" class="form-control" formControlName="dni" placeholder="DNI" [ngClass]="{ 'is-invalid': submittedAddInvitado && formInvitado.controls.dni.errors }">
                     <div *ngIf="submittedAddInvitado && formInvitado.controls.dni.errors" class="invalid-feedback">
                       <div *ngIf="formInvitado.controls.dni.errors.required">Debe introducir el DNI</div>
                       <div *ngIf="formInvitado.controls.dni.errors.pattern">Debe introducir un DNI valido</div>
@@ -152,15 +155,16 @@
                         <fa-icon icon="calendar-alt"></fa-icon>
                       </div>
                     </div>
-                    <input type="date" class="form-control" formControlName="fechaNacimiento" placeholder="Fecha de nacimiento"
-                      [ngClass]="{ 'is-invalid': submittedAddInvitado && formInvitado.controls.fechaNacimiento.errors }">
+                    <input type="text" onfocus="(this.type='date')" class="form-control" formControlName="fechaNacimiento"
+                      placeholder="Fecha de nacimiento" [ngClass]="{ 'is-invalid': submittedAddInvitado && formInvitado.controls.fechaNacimiento.errors }">
                     <div *ngIf="submittedAddInvitado && formInvitado.controls.fechaNacimiento.errors" class="invalid-feedback">
-                      <div *ngIf="formInvitado.controls.fechaNacimiento.errors.required">Debe introducir la fecha de nacimiento</div>
+                      <div *ngIf="formInvitado.controls.fechaNacimiento.errors.required">Debe introducir la fecha de
+                        nacimiento</div>
                     </div>
                   </div>
                 </div>
-                
-               
+
+
               </div>
             </div>
           </div>

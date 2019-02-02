@@ -1,3 +1,4 @@
 export interface EmailServiceInterface {
-    send(name: String, email: String, message: String, date: Date): void;
+    sendContacto(name: String, email: String, message: String, date: Date): void;
+    sendConfirmacion(name: String, email: String, message: String, date: Date): void;
 }

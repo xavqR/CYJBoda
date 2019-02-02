@@ -37,7 +37,7 @@ export class ContactComponent implements OnInit {
       this.angularFirestore.collection('contactMessages').add(formRequest);
       this.form.reset();
       this.submitted = false;
-      this.emailService.send(name, email, message, date);
+      this.emailService.sendContacto(name, email, message, date);
     }
   }
 }
