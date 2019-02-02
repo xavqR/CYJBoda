@@ -1,11 +1,56 @@
 .card
 {
-    max-width: 780px;
-    width: 780px;
-    margin-bottom: 0px; 
-    text-align: left;
+  max-width: 780px;
+  width: 780px;
+  margin-bottom: 0px; 
+  text-align: left;
+}
+
+.removeIcon{
+  color:#dc3545;
+}
+
+.card-body{
+  padding: 0;
+  margin: 0;
+}
+
+.table {
+  margin-bottom: 0px;
+}
+
+.table-add {
+  margin-top: 8px; 
+  margin-bottom: 8px; 
+  margin-right: 12px; 
+}
+
+.card.is-invalid{
+  border-color: #dc3545;
 }
 
 .close:focus {
-    outline: none;
-  }
+  outline: none;
+}
+
+.invalidValidation{
+  font-size: 80%;
+  color: #dc3545;
+  margin-top: 0.25rem;
+}
+
+.btnConfirmar {
+  margin-top: 20px;
+}
+
+.radioButton{
+  margin-left: 10px;
+}
+
+.radio-inline{
+  margin-bottom: 0px;
+}
+
+.modal-body{
+  padding-bottom: 0px;
+}

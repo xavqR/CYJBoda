@@ -1,142 +1,177 @@
- <div class="componentContent">
+<div class="componentContent">
   <div>
-      <h3><i class="fa fa-envelope"></i>Confirmar asistencia</h3>
-      <hr class="separator"/>     
-      <p>Agradeceríamos que nos confirmarais la asistencia lo antes posible. Solamente hace falta hacer una confirmación por núcleo
-        familiar, añadiendo a todos los invitados abajo.
-      </p>    
+    <h3><i class="fa fa-envelope"></i>Confirmar asistencia</h3>
+    <hr class="separator" />
+    <p>Agradeceríamos que nos confirmarais la asistencia lo antes posible. Solamente hace falta hacer una confirmación
+      por núcleo
+      familiar, añadiendo a todos los invitados abajo.
+    </p>
   </div>
 
-  <form [formGroup]="formConfirmar" (ngSubmit)="onConfirmar()">   
+  <!-- Formulario confirmar -->
+  <form [formGroup]="formConfirmar" (ngSubmit)="confirmar()">
     <div class="form-group">
-        <div class="input-group mb-2">
-            <div class="input-group-prepend">
-                <div class="input-group-text"><fa-icon icon="user"></fa-icon></div>
-            </div>
-            <input type="text" class="form-control" formControlName="name" placeholder="Nombre" [ngClass]="{ 'is-invalid': submittedConfirmar && formConfirmar.controls.name.errors }">
-            <div *ngIf="submittedConfirmar && formConfirmar.controls.name.errors" class="invalid-feedback">
-            <div *ngIf="formConfirmar.controls.name.errors.required">Debe introducir un nombre</div>
-            </div>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <fa-icon icon="user"></fa-icon>
+          </div>
         </div>
+        <input type="text" class="form-control" formControlName="name" placeholder="Nombre" [ngClass]="{ 'is-invalid': submittedConfirmar && formConfirmar.controls.name.errors }">
+        <div *ngIf="submittedConfirmar && formConfirmar.controls.name.errors" class="invalid-feedback">
+          <div *ngIf="formConfirmar.controls.name.errors.required">Debe introducir un nombre</div>
+        </div>
+      </div>
     </div>
     <div class="form-group">
-        <div class="input-group mb-2">
-            <div class="input-group-prepend">
-                <div class="input-group-text"><fa-icon icon="envelope"></fa-icon></div>
-            </div>
-            <input type="email" class="form-control" placeholder="ejemplo@gmail.com" formControlName="email" [ngClass]="{ 'is-invalid': submittedConfirmar && formConfirmar.controls.email.errors }">
-            <div *ngIf="submittedConfirmar && formConfirmar.controls.email.errors" class="invalid-feedback">
-            <div *ngIf="formConfirmar.controls.email.errors.required">Debe introducir un email</div>
-            <div *ngIf="formConfirmar.controls.email.errors.email">Debe introducir un email valido</div>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <fa-icon icon="envelope"></fa-icon>
+          </div>
+        </div>
+        <input type="email" class="form-control" placeholder="ejemplo@gmail.com" formControlName="email" [ngClass]="{ 'is-invalid': submittedConfirmar && formConfirmar.controls.email.errors }">
+        <div *ngIf="submittedConfirmar && formConfirmar.controls.email.errors" class="invalid-feedback">
+          <div *ngIf="formConfirmar.controls.email.errors.required">Debe introducir un email</div>
+          <div *ngIf="formConfirmar.controls.email.errors.pattern">Debe introducir un email valido</div>
         </div>
       </div>
     </div>
 
-    <div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">     
-              <h4 class="modal-title w-100" id="myModalLabel">Añadir invitado</h4>
-              <button type="button" class="close" aria-label="Close" (click)="basicModal.hide()">
-                  <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <form [formGroup]="formInvitado" (ngSubmit)="onAddInvitado()">   
-            <div class="modal-body">
-              
-                    <div class="form-group">
-                     <div class="input-group mb-2">  
-                <div class="form-group">
-                    <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"><fa-icon icon="user"></fa-icon></div>
-                        </div>
-                        <input type="text" class="form-control" formControlName="fullname" placeholder="Nombre completo" [ngClass]="{ 'is-invalid': submittedAddInvitado && formInvitado.controls.fullname.errors }">
-                        <div *ngIf="submittedAddInvitado && formInvitado.controls.fullname.errors" class="invalid-feedback">
-                        <div *ngIf="formInvitado.controls.fullname.errors.required">Debe introducir nombre y apellidos</div>
-                        </div>
-                    </div>
-                </div>   
-                  <div class="form-group">
-                      <div class="input-group mb-2">
-                          <div class="input-group-prepend">
-                              <div class="input-group-text"><fa-icon icon="comment"></fa-icon></div>
-                          </div>
-                          <textarea class="form-control" placeholder="Alergias alimenticias" formControlName="alergias" [ngClass]="{ 'is-invalid': submittedAddInvitado && formInvitado.controls.alergias.errors }"></textarea>
-                      </div>
-                  </div>
-
-                  <div class="form-group">
-                      <div class="input-group mb-2">                  
-                          <label class="radio-inline">¿Te quedas a dormir?<input type="radio" name="optradio">Sí</label>
-                          <label class="radio-inline"><input type="radio" name="optradio">No</label>
-  
-                          <!-- <input type="text" class="form-control" placeholder="Apellidos" formControlName="surnames" [ngClass]="{ 'is-invalid': submittedAddInvitado && formInvitado.controls.surnames.errors }">
-                          <div *ngIf="submittedAddInvitado && formInvitado.controls.surnames.errors" class="invalid-feedback">
-                          <div *ngIf="formInvitado.controls.email.surnames.required">Debe introducir los apellidos</div>           
-                        </div>  -->            
-                      </div>
-                    </div>
-                  </div>
-                </div>                   
-              
-              
-              
-              
-              
-             
-            </div>
-            <div class="modal-footer">
-              <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Close</button>
-              <button type="submit" mdbBtn color="secondary" class="relative waves-light" mdbWavesEffect>Añadir</button>
-            </div>
-          </form>
-          </div>
+    <div class="card" [ngClass]="{ 'is-invalid': submittedConfirmar && invitados && invitados.length < 1}">
+      <h5 class="card-header text-center font-weight-bold">Invitados</h5>
+      <div class="card-body">
+        <span class="table-add float-right">
+          <a class="text-success" (click)="basicModal.show()" mdbWavesEffect>
+            <fa-icon class="fa-lg" icon="plus"></fa-icon>
+          </a>
+        </span>
+        <div id="table" class="table-editable" *ngIf="invitados && invitados.length > 0">
+          <table class="table table-bordered table-responsive-md table-striped text-center">
+            <tr>
+              <th class="text-center font-weight-normal">Invitado</th>
+              <th class="text-center font-weight-normal">¿Alojamiento?</th>
+              <th class="text-center font-weight-normal">¿Alergias?</th>
+              <th class="text-center font-weight-normal"></th>
+            </tr>
+            <tr *ngFor="let invitado of invitados; let id = index">
+              <td>{{ invitado.nombreCompleto }}</td>
+              <td>{{ invitado.hasAlojamiento ? 'Sí' : 'No' }}</td>
+              <td ngTrueValue="Si">{{ invitado.hasAlergias ? 'Sí' : 'No' }}</td>
+              <td>
+                <a class="text-success" (click)="removeInvitado(invitado)" mdbWavesEffect>
+                  <fa-icon class="removeIcon fa-lg" icon="times"></fa-icon>
+                </a>
+              </td>
+            </tr>
+          </table>
         </div>
+      </div>
     </div>
-
-
-        <div class="card">
-          <h5 class="card-header text-center font-weight-bold">Invitados</h5>       
-          <div class="card-body">
-              <span class="table-add float-right mb-3 mr-2">
-                  <a class="text-success" (click)="basicModal.show()" mdbWavesEffect>
-                    <fa-icon icon="plus"></fa-icon>
-                  </a>
-                </span>              
-                    
-
-
-            <!-- <div id="table" class="table-editable">      
-              <table class="table table-bordered table-responsive-md table-striped text-center">
-                <tr>
-                  <th class="text-center font-weight-normal">Nombre</th>
-                  <th class="text-center font-weight-normal">Apellidos</th>
-                  <th class="text-center font-weight-normal">¿Te alojas?</th>
-                  <th class="text-center font-weight-normal">DNI</th>
-                  <th class="text-center font-weight-normal">Fecha nacimiento</th>
-                  <th class="text-center font-weight-normal" >Alergias alimenticias</th>
-                  <th class="text-center font-weight-normal">Eliminar</th>
-                </tr>
-                <tr *ngFor="let person of personList; let id = index">
-                  <td contenteditable="true" (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)">{{person.name}}</td>
-                  <td contenteditable="true" (keyup)="changeValue(id, 'age', $event)" (blur)="updateList(id, 'age', $event)">{{person.age}}</td>
-                  <td contenteditable="true" (keyup)="changeValue(id, 'companyName', $event)" (blur)="updateList(id, 'companyName', $event)">{{person.companyName}}</td>
-                  <td contenteditable="true" (keyup)="changeValue(id, 'country', $event)" (blur)="updateList(id, 'country', $event)">{{person.country}}</td>
-                  <td contenteditable="true" (keyup)="changeValue(id, 'city', $event)" (blur)="updateList(id, 'city', $event)">{{person.city}}</td>           
-                  <td>
-                    <span class="table-remove">
-                      <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(id)">Remove</button>
-                    </span>
-                  </td>
-                </tr>
-              </table> 
-            </div> -->
-          </div>
-        </div>
-
-    <div class="text-center">
+    <div *ngIf="submittedConfirmar && invitados && invitados.length < 1" class="invalidValidation">
+      <div>Debe introducir algun invitado</div>
+    </div>
+    <div class="btnConfirmar text-center">
       <input type="submit" value="Confirmar" class="btn">
-  </div>
+    </div>
   </form>
-</div> 
+
+  <!-- Modal añadir invitado -->
+  <div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title w-100" id="myModalLabel">Añadir invitado</h4>
+          <button type="button" class="close" aria-label="Close" (click)="closeAddInvitado()">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <form [formGroup]="formInvitado" (ngSubmit)="addInvitado()">
+          <div class="modal-body">
+            <div class="form-group">
+              <div class="input-group mb-2">
+
+                <div class="form-group col-md-12 col-lg-12">
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <fa-icon icon="user"></fa-icon>
+                      </div>
+                    </div>
+                    <input type="text" class="form-control" formControlName="fullname" placeholder="Nombre completo"
+                      [ngClass]="{ 'is-invalid': submittedAddInvitado && formInvitado.controls.fullname.errors }">
+                    <div *ngIf="submittedAddInvitado && formInvitado.controls.fullname.errors" class="invalid-feedback">
+                      <div *ngIf="formInvitado.controls.fullname.errors.required">Debe introducir nombre y apellidos</div>
+                      <div *ngIf="formInvitado.controls.fullname.errors.pattern">Debe introducir un nombre y apellidos
+                        correcto</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-12 col-lg-12">
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <fa-icon icon="comment"></fa-icon>
+                      </div>
+                    </div>
+                    <textarea class="form-control" placeholder="Alergias alimenticias" formControlName="alergias"></textarea>
+                  </div>
+                </div>
+
+                  <div class="input-group col-md-12 col-lg-12">
+                    <label class="radio-inline">¿Te quedas a dormir? <input class="radioButton" type="radio" name="hasAlojamiento"
+                        formControlName="hasAlojamiento" [value]="true" [(ngModel)]='hasAlojamiento'>Sí</label>
+                    <label class="radio-inline"><input class="radioButton" type="radio" name="hasAlojamiento"
+                        formControlName="hasAlojamiento" [value]="false" [(ngModel)]='hasAlojamiento'>No</label>
+                    <div class="invalidValidation" *ngIf="submittedAddInvitado && formInvitado.controls.hasAlojamiento.errors && formInvitado.controls.hasAlojamiento.errors.required">Debes
+                      seleccionar si te quedas a dormir</div>
+                  </div>
+
+                <div class="form-group col-md-12 col-lg-12" style="margin-top: 1rem" *ngIf="formInvitado.controls.hasAlojamiento && formInvitado.controls.hasAlojamiento.value == 1">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <fa-icon icon="id-card"></fa-icon>
+                      </div>
+                    </div>
+                    <input type="text" class="form-control" formControlName="dni" placeholder="DNI"
+                      [ngClass]="{ 'is-invalid': submittedAddInvitado && formInvitado.controls.dni.errors }">
+                    <div *ngIf="submittedAddInvitado && formInvitado.controls.dni.errors" class="invalid-feedback">
+                      <div *ngIf="formInvitado.controls.dni.errors.required">Debe introducir el DNI</div>
+                      <div *ngIf="formInvitado.controls.dni.errors.pattern">Debe introducir un DNI valido</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-12 col-lg-12" style="margin-bottom: 0px" *ngIf="formInvitado.controls.hasAlojamiento && formInvitado.controls.hasAlojamiento.value == 1">
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <fa-icon icon="calendar-alt"></fa-icon>
+                      </div>
+                    </div>
+                    <input type="date" class="form-control" formControlName="fechaNacimiento" placeholder="Fecha de nacimiento"
+                      [ngClass]="{ 'is-invalid': submittedAddInvitado && formInvitado.controls.fechaNacimiento.errors }">
+                    <div *ngIf="submittedAddInvitado && formInvitado.controls.fechaNacimiento.errors" class="invalid-feedback">
+                      <div *ngIf="formInvitado.controls.fechaNacimiento.errors.required">Debe introducir la fecha de nacimiento</div>
+                    </div>
+                  </div>
+                </div>
+                
+               
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="closeAddInvitado()"
+              mdbWavesEffect>Close</button>
+            <button type="submit" mdbBtn color="secondary" class="relative waves-light" mdbWavesEffect>Añadir</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
